@@ -1,0 +1,822 @@
+html{
+	scroll-behavior: smooth;
+}
+
+body {
+  background-color: #101d2e;
+  margin: 0;
+  font-family: Merriweather, serif;
+}
+
+h1 {
+  color: #98D6EA;
+  font-size: 2.7vw;
+}
+
+h3 {
+  color: #3FC5F0;
+  font-size: 1.5vw;
+}
+
+p {
+  font-family: Montserrat, serif;
+  color: #F9F3F3;
+  font-size: 1.3vw;
+}
+
+.hr-top {
+  margin: 0;
+  height: 0.4vw;
+  background: linear-gradient(#ffd700, #e8d57f, #ffd700);
+  border: 0;
+}
+
+/*====================Navigation Bar===============*/
+
+/*Navbar icon*/
+.bars {
+	position: fixed;
+	width: 28px;
+	height: 30px;
+	top: 40px;
+	right: 10px;
+	cursor: pointer;
+	z-index: 101;
+	padding-top: 9px;
+	outline: none;
+	transition: .5s ease;
+}
+
+.bars:hover #bar2{
+	transition: transform .5s;
+	transform: translateX(-8px);
+}
+
+.bars.active {
+	top: 20px;
+}
+
+.bar {
+	width: 100%;
+	height: 4.3px;
+	border-radius: 20px;
+	background-color: #fff;
+	outline: none;
+	position: absolute;
+}
+
+#nav-action #bar1 {
+	transform: translateY(-10px);
+}
+
+#nav-action #bar3 {
+	transform: translateY(10px);
+}
+
+.bars.active #bar2 {
+	animation: disappear 1s;
+	color: aqua;
+	animation-fill-mode: forwards;
+}
+
+.bars.active #bar1 {
+	animation: top-bar 1s;
+	animation-fill-mode: forwards;
+}
+
+.bars.active #bar3 {
+	animation: bottom-bar 1s;
+	animation-fill-mode: forwards;
+}
+
+
+/* Navbar Links CSS */
+
+#nav {
+	position: fixed;
+	top: 0px;
+	bottom: 0;
+	left: 0;
+	right: 0px;
+	transition: all 1s;
+	z-index: -1;
+	overflow: hidden;
+	opacity: 0;
+}
+
+#nav a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 22px;
+	font-family: var(--heading-font);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-indent: 50vw;
+	border-radius: 50%;
+	transition: all .5s;
+}
+
+#nav a:hover {
+	background: #ED213A;
+}
+
+ul {
+	list-style: none;
+}
+
+.visible {
+	z-index: 100 !important;
+	opacity: 1 !important;
+}
+
+.shape-circle {
+	border-radius: 50%;
+	width: 20vw;
+	height: 20vw;
+	top: -10vw;
+	right: -10vw;
+	position: absolute;
+	transition: all 1s ease-in-out;
+	background: #101d2e;
+	box-shadow: 0 0px 0px rgba(232, 213, 127, 0.5);
+	outline: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+nav.visible li:first-child {
+	width: 200vw;
+	height: 200vw;
+	top: -100vw;
+	right: -100vw;
+	z-index: 5;
+	transition: all .5s ease-in-out;
+	box-shadow: 0 0px 80px rgba(232, 213, 127, 0.5);
+}
+
+nav.visible li:nth-child(2) {
+	width: 150vw;
+	height: 150vw;
+	top: -75vw;
+	right: -75vw;
+	z-index: 6;
+	transition: all .6s ease-in-out;
+	box-shadow: 0 0px 80px rgba(232, 213, 127, 0.5);
+}
+
+nav.visible li:nth-child(3) {
+	width: 100vw;
+	height: 100vw;
+	top: -50vw;
+	right: -50vw;
+	z-index: 7;
+	transition: all .7s ease-in-out;
+	box-shadow: 0 0px 80px rgba(232, 213, 127, 0.5);
+}
+
+nav.visible li:last-child {
+	width: 50vw;
+	height: 50vw;
+	top: -25vw;
+	right: -25vw;
+	z-index: 8;
+	transition: all .8s ease-in-out;
+	box-shadow: 0 0px 80px rgba(232, 213, 127, 0.5);
+}
+
+nav.visible li:nth-child(1) a {
+	line-height: 275vw !important;
+	text-indent: 7vw !important;
+
+}
+
+nav.visible li:nth-child(2) a {
+	line-height: 210vw !important;
+	text-indent: 8vw !important;
+}
+
+nav.visible li:nth-child(3) a {
+	line-height: 145vw !important;
+	text-indent: 10vw !important;
+
+}
+
+@keyframes top-bar {
+	50% {
+		transform: translateY(0);
+	}
+
+	100% {
+		transform: rotate(45deg) translateY(0);
+	}
+}
+
+@keyframes bottom-bar {
+	50% {
+		transform: translateY(0);
+	}
+
+	100% {
+		transform: rotate(-45deg) translateY(0);
+	}
+}
+
+@keyframes disappear {
+	50% {
+		transform: scale(0);
+	}
+
+	100% {
+		background-color: transparent;
+	}
+}
+/* Social Media Buttons */
+
+.social-icons {
+	position: fixed;
+	top: 40%;
+	right: 10px;
+	z-index: 2;
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+}
+
+.social-icons a {
+	text-decoration: none;
+
+}
+
+.fa-instagram {
+	text-align: center;
+	display: block;
+	font-size: 30px;
+	margin-left: 3px;
+}
+
+.fa-youtube {
+	display: block;
+	font-size: 30px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.social-icons a .fab {
+	color: #fff;
+}
+
+.social-icons a .fab:hover {
+	cursor: pointer;
+	transform: scale(1.08);
+}
+
+/*      Back to top   */
+.back-to-top {
+	background-color: #101d2e;
+	padding: 10px 12px;
+	color: #ffd700;
+	font-size: 25px;
+	cursor: pointer;
+	border-radius: 8px;
+	box-shadow: 0 0 7px #ffd700;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	z-index: 2;
+	transition: all .5s ease-in;
+	opacity: 0;
+	transform: translateY(1000px);
+}
+
+.icon {
+  position: absolute;
+  top: 1.7vw;
+  width: 7vw;
+  height: 7vw;
+  left: 2%;
+}
+
+.bg-img {
+  height: 47vw;
+  width: 100%;
+  margin-top: 0;
+  border: 0;
+}
+
+.heading {
+  position: absolute;
+  top: 14vw;
+  left: 2%;
+  font-family: Barrio;
+  font-size: 3vw;
+  color: #393E46;
+}
+
+.sub-head {
+  position: absolute;
+  top: 20vw;
+  left: 11%;
+  font-family: Barrio;
+  font-size: 3vw;
+  color: #393E46;
+}
+
+.art-gallery {
+  margin-top: 7%;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+.animation {
+  width: 70%;
+  height: 40vw;
+  margin-left: 15%;
+  position: relative;
+  background-size: 100% 100%;
+  box-shadow: 1px 2px 10px #ffd700;
+  animation: slider 45s infinite linear;
+}
+
+@keyframes slider {
+  0%,100% {
+    background-image: url('src/Images/Misc/16.png');
+  }
+
+  8% {
+    background-image: url('src/Images/Misc/15.png');
+  }
+
+  16% {
+    background-image: url('src/Images/Misc/14.png');
+  }
+
+  24% {
+    background-image: url('src/Images/Misc/13.png');
+  }
+
+  32% {
+    background-image: url('src/Images/Misc/12.png');
+  }
+
+  40% {
+    background-image: url('src/Images/Misc/11.png');
+  }
+
+  48% {
+    background-image: url('src/Images/Misc/10.png');
+  }
+
+  56% {
+    background-image: url('src/Images/Misc/09.png');
+  }
+
+  64% {
+    background-image: url('src/Images/Misc/08.png');
+  }
+
+  72% {
+    background-image: url('src/Images/Misc/07.png');
+  }
+
+  80% {
+    background-image: url('src/Images/Misc/06.png');
+  }
+
+  88% {
+    background-image: url('src/Images/Misc/05.png');
+  }
+
+  96% {
+    background-image: url('src/Images/Misc/04.png');
+  }
+}
+
+.images {
+  margin: 7%;
+}
+
+.images img{
+  border: 3.2px solid;
+  border-top-width: 0;
+  border-bottom: 0;
+  border-image: linear-gradient(to bottom, rgb(0 0 0/ 30%), rgb(255 215 0 / 100%), #ffd700, #000) 10 100%;
+  box-shadow: 0 20px 50px rgb(0 0 0/ 50%);
+  padding: 15px;
+}
+
+.mandala-img {
+  width: 20%;
+  height: 16vw;
+  margin-right: 20px;
+  float: left;
+}
+
+.painting-img {
+  width: 20%;
+  height: 16vw;
+  margin-left: 20px;
+  float: right;
+}
+
+.digital-art-img {
+  width: 20%;
+  height: 16.5vw;
+  margin-right: 20px;
+  float: left;
+}
+
+.sketch-art-img {
+  width: 20%;
+  height: 16vw;
+  margin-left: 20px;
+  float: right;
+}
+
+.artist {
+  margin-top: 10%;
+  text-align: center;
+}
+
+.p {
+  margin: 7%;
+  border: 3.2px solid;
+  border-top-width: 0;
+  border-bottom: 0;
+  border-image: linear-gradient(to bottom, rgb(0 0 0/ 30%), rgb(255 215 0 / 100%), #ffd700, #000) 10 100%;
+  box-shadow: 0 20px 50px rgb(0 0 0/ 50%);
+  padding: 15px;
+}
+
+.p-img {
+  margin-top: 0;
+  margin-bottom: 2%;
+  height: 20%;
+  width: 20%;
+}
+
+.phr {
+  border: dotted #ffd700 0.5vw;
+  border-bottom: none;
+  width: 3vw;
+  margin: 30px auto;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #101d2e;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar:hover {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 30px;
+  background: linear-gradient(#101d2e, #e8d57f, #e8d57f);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.footer {
+  position: relative;
+  margin-left: 30.3vw;
+  margin-top: 10vw;
+
+}
+
+.trophy-img {
+  height: 5vw;
+  width: 5vw;
+}
+
+.medal-img {
+  height: 5vw;
+  width: 5vw;
+}
+
+.artwork-img {
+  height: 5vw;
+  width: 5vw;
+}
+
+.trophy {
+  position: relative;
+  text-align: center;
+}
+
+.medal {
+  position: absolute;
+  margin-left: 16.6vw;
+  top: 0;
+  text-align: center;
+}
+
+.artwork {
+  position: absolute;
+  top: 0;
+  text-align: center;
+}
+
+.bottom{
+  margin-top: 20vw;
+  text-align: center;
+
+}
+
+.copyright{
+	position: relative;
+  	color: #5589f2;
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px 30px;
+	background: #101d2e;
+	box-shadow: 0 20px 50px rgb(0 0 0/ 50%);
+	border: 3px solid #FFD700;
+	border-top-width: 0;
+	border-bottom-width: 0;
+}
+
+
+.mandala-text{
+  margin-top: 1vw;
+}
+
+.painting-text{
+    margin-top: 1vw;
+
+}
+.digital-art-text{
+  margin-top: 1vw;
+}
+
+.sketch-art-text{
+  margin-top: 1vw;
+}
+.desig{
+  font-size: 1.2vw;
+  margin-bottom: 1vw;
+}
+@media screen and (max-width:600px){
+ 	 p {
+   	 font-size: 2.3vw;
+ 	 }
+ 	 h3{
+  	  font-size: 15px;
+  	}
+ 	 h1{
+   	 font-size: 20px;
+  	}
+	
+	nav.visible li:nth-child(1) {
+		width: 230vw;
+		height: 230vw;
+	}
+
+	nav.visible li:nth-child(2) {
+		width: 170vw;
+		height: 170vw;
+	}
+
+	nav.visible li:nth-child(3) {
+		width: 110vw;
+		height: 110vw;
+	}
+
+	nav.visible li:nth-child(4) {
+		width: 50vw;
+		height: 50vw;
+	}
+   	 nav.visible li:nth-child(1) a {
+        	line-height: 380vw !important;
+       		 text-indent: 20vw !important;
+    	}
+    	nav.visible li:nth-child(2) a {
+        	line-height: 265vw !important;
+        	text-indent: 15vw !important;
+    	}
+    	nav.visible li:nth-child(3) a {
+        	line-height: 160vw !important;
+        	text-indent: 10vw !important;
+    	}
+	
+
+ 	 .icon {
+  		position: absolute;
+    		top: 1.7vw;
+   		width: 0;
+    		height: 0;
+    		left: 2%;
+ 	 }
+
+
+  	.bg-img {
+    		height: 60vw;
+   		 width: 100%;
+    		margin-top: 0;
+    		border: 0;
+  	}
+
+  	.heading {
+    		position: absolute;
+    		top: 14vw;
+   		 left: 1%;
+   		 font-family: Barrio;
+   		 font-size: 3.5vw;
+    		color: #393E46;
+  	}
+
+  	.footer {
+    		position: relative;
+    		margin-left: 0;
+    		margin-top: 10vw;
+
+  	}
+
+  .trophy-img {
+    height: 8vw;
+    width: 8vw;
+
+  }
+
+  .medal-img {
+    height: 8vw;
+    width: 8vw;
+  }
+
+  .artwork-img {
+    height: 8vw;
+    width: 8vw;
+  }
+
+  .trophy {
+    position: relative;
+    text-align: center;
+    margin-left: 50vw;
+  }
+
+  .medal {
+    position: absolute;
+    margin-left: 45vw;
+    top: 0;
+    text-align: center;
+  }
+
+  .artwork {
+    position: absolute;
+    top: 0;
+    margin-left: 20vw;
+    text-align: center;
+  }
+  .copyright{
+    font-size: 2.5vw;
+    color: grey;
+  }
+
+  .images{
+    text-align: center;
+  }
+
+  .mandala-img {
+    width: 83%;
+    height: 65vw;
+    margin: 40px;
+    margin-bottom: 20px;
+
+  }
+
+  .painting-img {
+    width: 83%;
+    height: 65vw;
+    margin: 40px;
+    margin-bottom: 20px;
+
+  }
+
+  .digital-art-img {
+    width: 83%;
+    height: 65vw;
+    margin: 40px;
+    margin-bottom: 20px;
+
+  }
+
+  .sketch-art-img {
+    width: 83%;
+    height: 65vw;
+    margin: 40px;
+    margin-bottom: 20px;
+
+  }
+
+
+  .p-img {
+    margin-top: 0;
+    margin-bottom: 2%;
+    height: 25%;
+    width: 25%;
+  }
+
+  .animation {
+    width: 70%;
+    height: 60vw;
+    margin-left: 15%;
+    position: relative;
+    background-size: 100% 100%;
+    box-shadow: 1px 2px 10px #ffd700;
+    animation: slider 45s infinite linear;
+  }
+
+  @keyframes slider {
+    0%,100% {
+      background-image: url('src/Images/Artwork/img1.jpeg');
+    }
+
+    8% {
+      background-image: url('src/Images/Artwork/img7.jpeg');
+    }
+
+    16% {
+      background-image: url('src/Images/Artwork/img2.jpg');
+    }
+
+    24% {
+      background-image: url('src/Images/Artwork/img5.jpeg');
+    }
+
+    32% {
+      background-image: url('src/Images/Artwork/img6.jpeg');
+    }
+
+    40% {
+      background-image: url('src/Images/Artwork/img8.jpeg');
+    }
+
+    48% {
+      background-image: url('src/Images/Artwork/img9.jpeg');
+    }
+
+    56% {
+      background-image: url('src/Images/Artwork/img11.jpeg');
+    }
+
+    64% {
+      background-image: url('src/Images/Artwork/img12.jpeg');
+    }
+
+    72% {
+      background-image: url('src/Images/Artwork/img13.jpeg');
+    }
+
+    80% {
+      background-image: url('src/Images/Artwork/img14.jpeg');
+    }
+
+    88% {
+      background-image: url('src/Images/Artwork/img15.jpeg');
+    }
+
+    96% {
+      background-image: url('src/Images/Artwork/img 16.jpeg');
+    }
+  }
+
+  .phr {
+    border: dotted #ffd700 0.7vw;
+    border-bottom: none;
+    width: 3vw;
+    margin: 30px auto;
+  }
+
+  .mandala-text{
+    margin-top: 1.5vw;
+  }
+
+  .painting-text{
+      margin-top: 1.5vw;
+
+  }
+  .digital-art-text{
+    margin-top: 1.5vw;
+  }
+
+  .sketch-art-text{
+    margin-top: 1.5vw;
+  }
+
+  .desig{
+    font-size: 2vw;
+    margin-bottom: 1vw;
+
+}
